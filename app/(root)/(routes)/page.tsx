@@ -8,7 +8,9 @@ export default function Home() {
   return (
     <div>
       <Container>
-        <Button type="primary">Button</Button>
+        <Button type="primary" size="small">
+          Hello World
+        </Button>
         <FloatButton />
       </Container>
     </div>

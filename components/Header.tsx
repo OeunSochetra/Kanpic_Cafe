@@ -5,7 +5,6 @@ import Link from "next/link";
 import { useState } from "react";
 
 const Header = () => {
-  const navbar = ["Menu", "Stocks", "Report", "Empolyee"];
   const [changeAction, setChangeAction] = useState<number | undefined>();
 
   const handleAction = (index: number) => {
@@ -14,18 +13,41 @@ const Header = () => {
 
   return (
     <div className="flex justify-between items-center pt-5">
-      <div className="flex gap-11">
-        {navbar.map((item, index: number) => (
-          <ul
-            key={index}
-            onClick={() => handleAction(index)}
-            className={`${changeAction === index ? "text-red-600" : ""}`}
-          >
-            <li className="pt-5 cursor-pointer hidden md:block font-[700] text-md">
-              {item}
+      <div className="">
+        <ul className="flex gap-5 pt-8 font-[600] text-[#fff] text-lg cursor-pointer">
+          <Link href="/menu">
+            <li
+              onClick={() => handleAction(0)}
+              className={`${changeAction === 0 ? "text-[#f6d08f]" : ""}`}
+            >
+              Menu
             </li>
-          </ul>
-        ))}
+          </Link>
+          <Link href="/stocks">
+            <li
+              onClick={() => handleAction(1)}
+              className={`${changeAction === 1 ? "text-[#f6d08f]" : ""}`}
+            >
+              Stocks
+            </li>
+          </Link>
+          <Link href="/reportpage">
+            <li
+              onClick={() => handleAction(2)}
+              className={`${changeAction === 2 ? "text-[#f6d08f]" : ""}`}
+            >
+              Report
+            </li>
+          </Link>
+          <Link href="/empolyee">
+            <li
+              onClick={() => handleAction(3)}
+              className={`${changeAction === 3 ? "text-[#f6d08f]" : ""}`}
+            >
+              Empolyee
+            </li>
+          </Link>
+        </ul>
       </div>
 
       <div className="flex justify-center items-center">
