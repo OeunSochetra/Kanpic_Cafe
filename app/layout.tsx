@@ -5,6 +5,7 @@ import { ThemeProvider } from "@/components/Theme-Provider";
 import { ClerkProvider } from "@clerk/nextjs";
 import Container from "@/components/Container";
 import Header from "@/components/Header";
+import StyledComponentsRegistry from "../lib/AntdRegistry";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -25,9 +26,11 @@ export default function RootLayout({
           <Container>
             <Header />
           </Container>
-          <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-            {children}
-          </ThemeProvider>
+          <StyledComponentsRegistry>
+            <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+              {children}
+            </ThemeProvider>
+          </StyledComponentsRegistry>
         </body>
       </html>
     </ClerkProvider>
