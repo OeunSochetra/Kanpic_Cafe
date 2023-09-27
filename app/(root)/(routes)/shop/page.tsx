@@ -1,7 +1,7 @@
 import React from "react";
 import Container from "@/components/Container";
 
-const reportpage = () => {
+const shop = () => {
   return (
     <Container>
       <div>
@@ -11,4 +11,4 @@ const reportpage = () => {
   );
 };
 
-export default reportpage;
+export default shop;

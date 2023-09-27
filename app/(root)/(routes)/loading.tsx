@@ -1,7 +1,4 @@
+import Progressbar from "@/components/Progressbar";
 export default function Loading() {
-  return (
-    <main>
-      <span className="loader"></span>
-    </main>
-  );
+  return <Progressbar />;
 }

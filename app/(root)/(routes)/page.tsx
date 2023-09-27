@@ -1,14 +1,13 @@
 import Container from "@/components/Container";
-import { Button, ConfigProvider } from "antd";
+import { ConfigProvider, Button } from "antd";
 import theme from "@/themeConfig";
+import Mainpage from "@/components/Mainpage";
 
 export default function Home() {
   return (
-    <div className="text-[#786f7a]">
+    <div>
       <ConfigProvider theme={theme}>
-        <Container>
-          <Button type="primary">Button</Button>
-        </Container>
+        <Mainpage />
       </ConfigProvider>
     </div>
   );
