@@ -1,14 +1,14 @@
-
-import Header from "@/components/Header";
-import { ModeToggle } from "@/components/Theme-Toggle";
-import { UserButton } from "@clerk/nextjs";
 import Container from "@/components/Container";
-
+import { ConfigProvider, Button } from "antd";
+import theme from "@/themeConfig";
+import Mainpage from "@/components/Mainpage";
 
 export default function Home() {
   return (
-  <div>
-    <h1></h1>
-  </div>
-  )
+    <div>
+      <ConfigProvider theme={theme}>
+        <Mainpage />
+      </ConfigProvider>
+    </div>
+  );
 }

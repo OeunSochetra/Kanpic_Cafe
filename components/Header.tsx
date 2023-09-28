@@ -1,38 +1,72 @@
+"use client";
 import { ModeToggle } from "./Theme-Toggle";
 import { UserButton } from "@clerk/nextjs";
-import { Menu } from "lucide-react";
 import Link from "next/link";
+import { useState } from "react";
+import Sidebar from "./Sidebar";
 
-function Header() {
+const Header = () => {
+  const [changeAction, setChangeAction] = useState<number | undefined>();
+
+  const handleAction = (index: number) => {
+    setChangeAction(index);
+    // set to delay loading
+    // await new Promise((resolve) => setTimeout(resolve, 3000));
+  };
+
   return (
-    <div className="flex justify-between items-center gap-2">
-      {/* Navbar link for page */}
-
-      <div className="pt-6 hidden md:block ">
-        <nav className="">
-          <ul className="flex gap-5 font-[600] text-[#a86666]  text-xl cursor-pointer">
-            <Link href="/menu" className="hover:text-white">
+    <div className="flex justify-between items-center pt-5">
+      <div className="hidden md:block">
+        <ul className="flex gap-5 pt-5 font-[600] text-[#fff] text-lg cursor-pointer">
+          <Link href="/">
+            <li
+              onClick={() => handleAction(0)}
+              className={`${changeAction === 0 ? "text-[#f6d08f]" : ""}`}
+            >
               Menu
-            </Link>
-            <Link href="/stocks" className="hover:text-white">
-              Stocks
-            </Link>
-            <Link href="/report" className="hover:text-white">
-              Report
-            </Link>
-            <Link href="/empolyee" className="hover:text-white">
-              Empolyee
-            </Link>
-          </ul>
-        </nav>
+            </li>
+          </Link>
+          <Link href="/shop">
+            <li
+              onClick={() => handleAction(1)}
+              className={`${changeAction === 1 ? "text-[#f6d08f]" : ""}`}
+            >
+              Shop
+            </li>
+          </Link>
+          <Link href="/feed">
+            <li
+              onClick={() => handleAction(2)}
+              className={`${changeAction === 2 ? "text-[#f6d08f]" : ""}`}
+            >
+              Feed
+            </li>
+          </Link>
+          <Link href="/cart">
+            <li
+              onClick={() => handleAction(3)}
+              className={`${changeAction === 3 ? "text-[#f6d08f]" : ""}`}
+            >
+              Cart
+            </li>
+          </Link>
+          <Link href="/aboutus">
+            <li
+              onClick={() => handleAction(4)}
+              className={`${changeAction === 4 ? "text-[#f6d08f]" : ""}`}
+            >
+              About Us
+            </li>
+          </Link>
+        </ul>
       </div>
 
-      {/* Navbar link for page */}
+      <Sidebar />
 
       <div className="flex justify-center items-center">
         <div>
           <Link href="/">
-            <img src="/logo.png.png" alt="logo" className="max-w-[150px]" />
+            <img src="/logo.png.png" alt="logo" className="max-w-[130px]" />
           </Link>
         </div>
         <div className="flex mt-2 gap-4 justify-between items-center">
@@ -42,6 +76,6 @@ function Header() {
       </div>
     </div>
   );
-}
+};
 
 export default Header;
