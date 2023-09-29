@@ -6,6 +6,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import Meta from "antd/es/card/Meta";
 import { Button } from "antd";
+import PopupDetail from "./PopupDetail";
 
 interface MenuItem {
   id: string;
@@ -68,6 +69,14 @@ const Mainpage = () => {
     setModalOpen(true);
   };
 
+  const handleOk = () => {
+    setModalOpen(false);
+  };
+
+  const handleCancel = () => {
+    setModalOpen(false);
+  };
+
   return (
     <>
       <main className="pt-20">
@@ -84,9 +93,18 @@ const Mainpage = () => {
                   <Meta title={item.productName} description={item.price} />
                   <div className="flex items-center justify-between pt-4">
                     <div>
-                      <Button size="small" style={buttonStyle}>
+                      <Button
+                        onClick={showModal}
+                        size="small"
+                        style={buttonStyle}
+                      >
                         Buy now
                       </Button>
+                      <PopupDetail
+                        modalOpen={modalOpen}
+                        handleOk={handleOk}
+                        handleCancel={handleCancel}
+                      />
                     </div>
                     <Button
                       onClick={() => handleIncrement(item.id)}

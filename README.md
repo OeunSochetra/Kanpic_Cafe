@@ -43,3 +43,61 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+# ModalPopUp
+
+## How to pass prop from one component to component and use it with Ant Design UI
+
+## Component 1 needs to be made first
+
+```typescript
+import React from "react";
+import Modal from "antd/es/modal/Modal";
+
+interface ModalProps {
+  modalOpen: boolean;
+  handleOk: () => void;
+  handleCancel: () => void;
+}
+
+const PopupDetail = ({ modalOpen, handleOk, handleCancel }: ModalProps) => {
+  return (
+    <>
+      <Modal open={modalOpen} onOk={handleOk} onCancel={handleCancel}>
+        Hello World
+      </Modal>
+    </>
+  );
+};
+
+export default PopupDetail;
+```
+
+```typescript
+const [modalOpen, setModalOpen] = useState<boolean>(false);
+
+const showModal = () => {
+  setModalOpen(true);
+};
+
+const handleOk = () => {
+  setModalOpen(false);
+};
+
+const handleCancel = () => {
+  setModalOpen(false);
+};
+
+return (
+  <div>
+    <Button onClick={showModal} size="small" style={buttonStyle}>
+      Buy now
+    </Button>
+    <PopupDetail
+      modalOpen={modalOpen}
+      handleOk={handleOk}
+      handleCancel={handleCancel}
+    />
+  </div>
+);
+```
