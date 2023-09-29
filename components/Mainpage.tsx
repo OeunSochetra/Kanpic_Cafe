@@ -5,9 +5,20 @@ import Container from "./Container";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import Meta from "antd/es/card/Meta";
+import { Button } from "antd";
+
+interface MenuItem {
+  id: string;
+  imgurl: string;
+  productName: string;
+  price: string;
+  count?: number;
+}
 
 const Mainpage = () => {
-  const [menu, setMenu] = useState<any[]>([]);
+  const [menu, setMenu] = useState<MenuItem[]>([]);
+  //this state is use to control Modal
+  const [modalOpen, setModalOpen] = useState<boolean>(false);
 
   const fetchMenu = async () => {
     try {
@@ -23,6 +34,40 @@ const Mainpage = () => {
     fetchMenu();
   }, []);
 
+  const buttonStyle = {
+    backgroundColor: "#f8eac7",
+    color: "#7a717d",
+  };
+
+  //implement the functionality of incrementing and decrementing the count for each card individually,
+  const handleIncrement = (id: string) => {
+    setMenu((PrevMunu) =>
+      PrevMunu.map((item) =>
+        item.id === id ? { ...item, count: (item.count || 0) + 1 } : item
+      )
+    );
+  };
+
+  const handleDecrement = (id: string) => {
+    setMenu((PrevMunu) =>
+      PrevMunu.map((item) =>
+        item.id === id
+          ? {
+              ...item,
+              count: item.count && item.count > 0 ? item.count - 1 : 0,
+            }
+          : item
+      )
+    );
+  };
+  //implement the functionality of incrementing and decrementing the count for each card individually,
+
+  // implement the functionality set Modal
+
+  const showModal = () => {
+    setModalOpen(true);
+  };
+
   return (
     <>
       <main className="pt-20">
@@ -31,13 +76,34 @@ const Mainpage = () => {
             {menu.map((item) => (
               <div key={item.id} className="">
                 <Card
-                  className="bg-[#f8eac7]"
+                  className="bg-[#7b727d]"
                   hoverable
                   style={{ width: 200 }}
                   cover={<img src={item.imgurl} alt="photo" height={40} />}
                 >
                   <Meta title={item.productName} description={item.price} />
-                  <button className="px-2 py-1 bg-black"></button>
+                  <div className="flex items-center justify-between pt-4">
+                    <div>
+                      <Button size="small" style={buttonStyle}>
+                        Buy now
+                      </Button>
+                    </div>
+                    <Button
+                      onClick={() => handleIncrement(item.id)}
+                      style={buttonStyle}
+                      size="small"
+                    >
+                      +
+                    </Button>
+                    {item.count || 0}
+                    <Button
+                      onClick={() => handleDecrement(item.id)}
+                      style={buttonStyle}
+                      size="small"
+                    >
+                      -
+                    </Button>
+                  </div>
                 </Card>
               </div>
             ))}

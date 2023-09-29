@@ -3,7 +3,6 @@ import { ModeToggle } from "./Theme-Toggle";
 import { UserButton } from "@clerk/nextjs";
 import Link from "next/link";
 import { useState } from "react";
-import Sidebar from "./Sidebar";
 
 const Header = () => {
   const [changeAction, setChangeAction] = useState<number | undefined>();
@@ -17,7 +16,7 @@ const Header = () => {
   return (
     <div className="flex justify-between items-center pt-5">
       <div className="hidden md:block">
-        <ul className="flex gap-5 pt-5 font-[600] text-[#fff] text-lg cursor-pointer">
+        <ul className="flex gap-5 pt-5 font-[600] text-[#fff] text-md cursor-pointer">
           <Link href="/">
             <li
               onClick={() => handleAction(0)}
@@ -60,8 +59,6 @@ const Header = () => {
           </Link>
         </ul>
       </div>
-
-      <Sidebar />
 
       <div className="flex justify-center items-center">
         <div>
