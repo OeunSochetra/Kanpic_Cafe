@@ -1,5 +1,5 @@
 import React from "react";
-import Modal from "antd/es/modal/Modal";
+import { Button, Modal } from "antd";
 
 interface ModalProps {
   modalOpen: boolean;
@@ -8,11 +8,30 @@ interface ModalProps {
 }
 
 const PopupDetail = ({ modalOpen, handleOk, handleCancel }: ModalProps) => {
+  const buttonStyle = {
+    backgroundColor: "#f8eac7",
+    color: "#7a717d",
+  };
+
   return (
     <>
-      <Modal open={modalOpen} onOk={handleOk} onCancel={handleCancel}>
-        Hello World
-      </Modal>
+      <Modal
+        open={modalOpen}
+        onCancel={handleCancel}
+        footer={[
+          <Button key="cancel" onClick={handleCancel}>
+            Cancel
+          </Button>,
+          <Button
+            style={buttonStyle}
+            key="ok"
+            type="primary"
+            onClick={handleOk}
+          >
+            OK
+          </Button>,
+        ]}
+      ></Modal>
     </>
   );
 };

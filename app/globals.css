@@ -108,3 +108,8 @@
     width: 100%;
   }
 }
+
+.ant-modal-wrap {
+  background-color: none;
+  opacity: 80px;
+}

@@ -81,7 +81,7 @@ const Mainpage = () => {
     <>
       <main className="pt-20">
         <Container>
-          <div className="grid lg:grid-cols-5 md:grid-cols-3 sm:grid-cols-2 gap-2">
+          <div className="grid lg:grid-cols-5 md:grid-cols-3 sm:grid-cols-3 gap-2">
             {menu.map((item) => (
               <div key={item.id} className="">
                 <Card
