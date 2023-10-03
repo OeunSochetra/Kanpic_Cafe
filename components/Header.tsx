@@ -22,7 +22,7 @@ const Header = () => {
               onClick={() => handleAction(0)}
               className={`${changeAction === 0 ? "text-[#f6d08f]" : ""}`}
             >
-              Menu
+              Home
             </li>
           </Link>
           <Link href="/shop">

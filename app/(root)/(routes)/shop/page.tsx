@@ -1,13 +1,13 @@
+import Mainpage from "@/components/Mainpage";
 import React from "react";
-import Container from "@/components/Container";
 
 const shop = () => {
   return (
-    <Container>
+    <>
       <div>
-        <h1>This is report page</h1>
+        <Mainpage />
       </div>
-    </Container>
+    </>
   );
 };
 

@@ -113,3 +113,47 @@
   background-color: none;
   opacity: 80px;
 }
+
+
+.slider {
+  position: relative;
+}
+
+.slider__content {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+.slider__slide {
+  flex: 0 0 100%;
+  margin-right: 20px;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+
+
+.slider__slide--active {
+  opacity: 1;
+}
+
+.slider__prev,
+.slider__next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 10px;
+  background-color: transparent;
+  border: none;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.slider__prev {
+  left: 10px;
+}
+
+.slider__next {
+  right: 10px;
+}
