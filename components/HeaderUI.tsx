@@ -4,7 +4,7 @@ import { UserButton } from "@clerk/nextjs";
 import Link from "next/link";
 import { useState } from "react";
 
-const Header = () => {
+const HeaderUi = () => {
   const [changeAction, setChangeAction] = useState<number | undefined>();
 
   const handleAction = (index: number) => {
@@ -16,45 +16,29 @@ const Header = () => {
   return (
     <div className="flex justify-between items-center pt-5">
       <div className="hidden md:block">
-        <ul className="flex gap-5 pt-5 font-[600] text-[#fff] text-md cursor-pointer">
-          <Link href="/">
+        <ul className="flex gap-5 pt-5 font-[600] text-black text-md cursor-pointer">
+          <Link href="/menu">
             <li
               onClick={() => handleAction(0)}
-              className={`${changeAction === 0 ? "text-[#f6d08f]" : ""}`}
+              className={`${changeAction === 0 ? "text-[#1677ff]" : ""}`}
             >
-              Home
+              Menu
             </li>
           </Link>
-          <Link href="/shop">
+          <Link href="/employee">
             <li
               onClick={() => handleAction(1)}
-              className={`${changeAction === 1 ? "text-[#f6d08f]" : ""}`}
+              className={`${changeAction === 1 ? "text-[#1677ff]" : ""}`}
             >
-              Shop
+              Employee
             </li>
           </Link>
-          <Link href="/feed">
+          <Link href="/products">
             <li
               onClick={() => handleAction(2)}
-              className={`${changeAction === 2 ? "text-[#f6d08f]" : ""}`}
+              className={`${changeAction === 2 ? "text-[#1677ff]" : ""}`}
             >
-              Feed
-            </li>
-          </Link>
-          <Link href="/cart">
-            <li
-              onClick={() => handleAction(3)}
-              className={`${changeAction === 3 ? "text-[#f6d08f]" : ""}`}
-            >
-              Cart
-            </li>
-          </Link>
-          <Link href="/aboutus">
-            <li
-              onClick={() => handleAction(4)}
-              className={`${changeAction === 4 ? "text-[#f6d08f]" : ""}`}
-            >
-              About Us
+              Products
             </li>
           </Link>
         </ul>
@@ -66,8 +50,8 @@ const Header = () => {
             <img src="/logo.png.png" alt="logo" className="max-w-[130px]" />
           </Link>
         </div>
-        <div className="flex mt-2 gap-4 justify-between items-center">
-          <ModeToggle />
+        <div className="flex gap-4 justify-between items-center">
+          {/* <ModeToggle /> */}
           <UserButton />
         </div>
       </div>
@@ -75,4 +59,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default HeaderUi;

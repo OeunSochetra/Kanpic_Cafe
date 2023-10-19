@@ -1,54 +1,182 @@
 {
-    "menu":[
-        {"id":"1",
-        "imgurl":"https://cafe1820.com/wp-content/uploads/2022/03/Cafe-negro.jpg",
-        "productName":"Cafe",
-        "price":"$3.50"
+    "product":[
+        {
+    "name": "DRINK",
+    "products": [
+        {
+          "id": 1,
+          "image":"https://images.pexels.com/photos/437716/pexels-photo-437716.jpeg?auto=compress&cs=tinysrgb&w=800",
+          "name": "Espresso",
+          "description": "A shot of pure espresso goodness.",
+          "price": 2.50
         },
-        {"id":"2",
-        "imgurl":"https://cafe1820.com/wp-content/uploads/2022/03/Cafe-negro.jpg",
-        "productName":"Cafe",
-        "price":"$3.50"
+        {
+          "id": 2,
+          "image":"https://images.pexels.com/photos/162947/coffee-glass-beverage-coffee-mug-162947.jpeg?auto=compress&cs=tinysrgb&w=800",
+          "name": "Cappuccino",
+          "description": "Espresso with steamed milk and foam.",
+          "price": 3.50
         },
-        {"id":"3",
-        "imgurl":"https://cafe1820.com/wp-content/uploads/2022/03/Cafe-negro.jpg",
-        "productName":"Cafe",
-        "price":"$3.50"
+        {
+          "id": 3,
+          "image":"https://images.pexels.com/photos/264487/pexels-photo-264487.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+          "name": "Latte",
+          "description": "Espresso with a lot of steamed milk and a touch of foam.",
+          "price": 4.00
         },
-        {"id":"4",
-        "imgurl":"https://cafe1820.com/wp-content/uploads/2022/03/Cafe-negro.jpg",
-        "productName":"Cafe",
-        "price":"$3.50"
+        {
+            "id": 4,
+            "image": "https://images.pexels.com/photos/302899/pexels-photo-302899.jpeg?auto=compress&cs=tinysrgb&w=800",
+            "name": "Mocha",
+            "description": "Espresso with steamed milk, chocolate, and whipped cream.",
+            "price": 4.50
+          },
+          {
+            "id": 5,
+            "image": "https://images.pexels.com/photos/3752647/pexels-photo-3752647.jpeg?auto=compress&cs=tinysrgb&w=800",
+            "name": "Iced Coffee",
+            "description": "Chilled coffee served over ice with your choice of syrup.",
+            "price": 3.00
+          },
+          {
+            "id": 6,
+            "image": "https://images.pexels.com/photos/414551/pexels-photo-414551.jpeg?auto=compress&cs=tinysrgb&w=800",
+            "name": "Chai Latte",
+            "description": "A spiced tea latte made with steamed milk.",
+            "price": 4.00
+          },
+          {
+            "id": 7,
+            "image": "https://images.pexels.com/photos/5305639/pexels-photo-5305639.jpeg?auto=compress&cs=tinysrgb&w=800",
+            "name": "Caramel Macchiato",
+            "description": "Espresso with steamed milk, caramel, and vanilla syrup.",
+            "price": 4.50
+          },
+          {
+            "id": 8,
+            "image": "https://images.pexels.com/photos/1839882/pexels-photo-1839882.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+            "name": "Hot Chocolate",
+            "description": "Warm and creamy chocolate delight topped with whipped cream.",
+            "price": 3.50
+          },
+          {
+            "id": 9,
+            "image": "https://images.pexels.com/photos/4552171/pexels-photo-4552171.jpeg?auto=compress&cs=tinysrgb&w=800",
+            "name": "Green Tea",
+            "description": "A refreshing cup of green tea.",
+            "price": 2.50
+          },
+          {
+            "id": 10,
+            "image": "https://images.pexels.com/photos/6207297/pexels-photo-6207297.jpeg?auto=compress&cs=tinysrgb&w=800",
+            "name": "Café Americano",
+            "description": "Espresso diluted with hot water.",
+            "price": 2.50
+          },
+          {
+            "id": 11,
+            "image": "https://images.pexels.com/photos/220704/pexels-photo-220704.jpeg?auto=compress&cs=tinysrgb&w=800",
+            "name": "Mint Tea",
+            "description": "Refreshing mint tea with a hint of sweetness.",
+            "price": 2.00
+          },
+          {
+            "id": 12,
+            "image": "https://images.pexels.com/photos/5946971/pexels-photo-5946971.jpeg?auto=compress&cs=tinysrgb&w=800",
+            "name": "Iced Chai Latte",
+            "description": "Chilled spiced tea latte served over ice.",
+            "price": 4.50
+          },
+          {
+            "id": 13,
+            "image": "https://images.pexels.com/photos/1749303/pexels-photo-1749303.jpeg?auto=compress&cs=tinysrgb&w=800",
+            "name": "Decaf Coffee",
+            "description": "A decaffeinated coffee option for those late nights.",
+            "price": 3.00
+          },
+
+          {
+            "id": 14,
+            "image": "https://images.pexels.com/photos/131893/pexels-photo-131893.jpeg?auto=compress&cs=tinysrgb&w=800",
+            "name": "Black Tea",
+            "description": "A classic black tea served hot with or without milk.",
+            "price": 2.50
+          }
+      ]
+    },
+    {
+        "name": "COOKEI",
+        "products": [
+        {
+            "id": 4,
+            "image":"https://images.pexels.com/photos/3724/food-morning-breakfast-orange-juice.jpg?auto=compress&cs=tinysrgb&w=800",
+            "name": "Croissant",
+            "description": "A delicious, flaky croissant.",
+            "price": 2.00
         },
-        {"id":"5",
-        "imgurl":"https://cafe1820.com/wp-content/uploads/2022/03/Cafe-negro.jpg",
-        "productName":"Cafe",
-        "price":"$3.50"
+        {
+            "id": 5,
+            "image":"https://images.pexels.com/photos/461431/pexels-photo-461431.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+            "name": "Blueberry Muffin",
+            "description": "A moist and flavorful blueberry muffin.",
+            "price": 2.50
         },
-        {"id":"6",
-        "imgurl":"https://cafe1820.com/wp-content/uploads/2022/03/Cafe-negro.jpg",
-        "productName":"Cafe",
-        "price":"$3.50"
+        {
+            "id": 6,
+            "image":"https://images.pexels.com/photos/5846049/pexels-photo-5846049.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+            "name": "Chocolate Chip Cookie",
+            "description": "A classic chocolate chip cookie.",
+            "price": 1.50
         },
-        {"id":"7",
-        "imgurl":"https://cafe1820.com/wp-content/uploads/2022/03/Cafe-negro.jpg",
-        "productName":"Cafe",
-        "price":"$3.50"
+        {
+          "id": 6,
+          "image": "https://images.pexels.com/photos/3625371/pexels-photo-3625371.jpeg?auto=compress&cs=tinysrgb&w=800",
+          "name": "Iced Caramel Macchiato",
+          "description": "Chilled coffee with caramel and vanilla swirl, topped with whipped cream.",
+          "price": 4.00
+        }
+        ]
+    }
+    ],
+
+
+
+
+
+    
+    "Employee":[
+        {
+            "id": "1",
+            "name": "John Doe",
+            "profileImage":"https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
+            "email": "john@example.com",
+            "phoneNumber": "+1 (123) 456-7890",
+            "role": "Manager",
+            "salary": "$50,000",
+            "department": "Sales",
+            "status":"Active"
         },
-        {"id":"8",
-        "imgurl":"https://cafe1820.com/wp-content/uploads/2022/03/Cafe-negro.jpg",
-        "productName":"Cafe",
-        "price":"$3.50"
+        {
+            "id": "1",
+            "name": "John Doe",
+            "profileImage":"https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
+            "email": "john@example.com",
+            "phoneNumber": "+1 (123) 456-7890",
+            "role": "Manager",
+            "salary": "$50,000",
+            "department": "Sales",
+            "status":"Active"
         },
-        {"id":"9",
-        "imgurl":"https://cafe1820.com/wp-content/uploads/2022/03/Cafe-negro.jpg",
-        "productName":"Cafe",
-        "price":"$3.50"
-        },
-        {"id":"10",
-        "imgurl":"https://cafe1820.com/wp-content/uploads/2022/03/Cafe-negro.jpg",
-        "productName":"Cafe",
-        "price":"$3.50"
+        {
+            "id": "1",
+            "name": "John Doe",
+            "profileImage":"https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
+            "email": "john@example.com",
+            "phoneNumber": "+1 (123) 456-7890",
+            "role": "Manager",
+            "salary": "$50,000",
+            "department": "Sales",
+            "status":"Active"
         }
     ]
 }

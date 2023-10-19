@@ -5,9 +5,7 @@ import Welcome from "@/components/Welcome";
 export default function Home() {
   return (
     <div>
-      <ConfigProvider theme={theme}>
-        <Welcome />
-      </ConfigProvider>
+      <ConfigProvider theme={theme}></ConfigProvider>
     </div>
   );
 }
