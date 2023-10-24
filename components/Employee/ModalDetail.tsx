@@ -1,13 +1,13 @@
 "use client";
-import { Card, Image, Modal } from "antd";
+import { Button, Card, Image, Modal } from "antd";
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 
 interface ModalDetailProp {
   isModalOpenDetail: boolean;
   setIsModalOpenDetail: (value: any) => void;
-  showModalDetail: () => void;
-  handleCancelDetail: () => void;
+  showModalDetail: (user: any) => void;
+  handleCancelDetail: (value: any) => void;
 }
 
 interface dataEmployee {
@@ -28,25 +28,16 @@ const ModalDetail = ({
   isModalOpenDetail,
   handleCancelDetail,
 }: ModalDetailProp) => {
-  const [userDetail, setUserDetail] = useState<dataEmployee[]>([]);
-
-  useEffect(() => {
-    fetchData();
-  }, []);
-
-  const fetchData = async () => {
-    try {
-      const res = await axios.get("http://localhost:3030/employee");
-      const datajson = res.data;
-      setUserDetail(datajson);
-    } catch (error) {
-      console.log("FetchData error:", error);
-    }
-  };
-
   return (
-    <Modal onCancel={handleCancelDetail} open={isModalOpenDetail}>
-      <h1>Hello World</h1>
+    <Modal
+      footer={null}
+      closeIcon={false}
+      onCancel={handleCancelDetail}
+      open={isModalOpenDetail}
+    >
+      <Button type="text" className="text-red-500" onClick={handleCancelDetail}>
+        Cencel
+      </Button>
     </Modal>
   );
 };

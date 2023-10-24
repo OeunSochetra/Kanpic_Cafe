@@ -42,12 +42,7 @@ const Products = () => {
       key: "image",
       render: (image: string, record: Product) => (
         <div className="flex items-center gap-3">
-          <Avatar
-            prefixCls="j"
-            src={image}
-            alt="Product"
-            style={{ maxWidth: "100px" }}
-          />
+          <Avatar src={image} alt="Product" style={{ maxWidth: "100px" }} />
           <p>{record.description}</p>
         </div>
       ),
