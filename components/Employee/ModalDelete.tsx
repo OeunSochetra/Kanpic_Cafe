@@ -1,24 +1,15 @@
 import React, { useState } from "react";
-import { Button, Modal, Space } from "antd";
+import { Button, Modal, Space, Input } from "antd";
 import axios from "axios";
+import { dataEmployee } from "@/type";
 
 interface ModalDeleteProp {
   isModalOpenDelete: boolean;
-  setIsModalOpenDelete: (value: any) => void;
+  setIsModalOpenDelete: (isModalOpenDelete: boolean) => void;
   showModalDelete: (value: any) => void;
   handleCancelDelete: () => void;
-}
-
-interface dataEmployee {
-  id: string;
-  profileImage: string;
-  name: string;
-  email: string;
-  phoneNumber: string;
-  role: string;
-  salary: string;
-  department: string;
-  status: string;
+  fetchData: () => void;
+  employeeToDelete: dataEmployee;
 }
 
 const ModalDelete = ({
@@ -26,18 +17,55 @@ const ModalDelete = ({
   setIsModalOpenDelete,
   showModalDelete,
   handleCancelDelete,
+  fetchData,
+  employeeToDelete,
 }: ModalDeleteProp) => {
+  const [password, setPassword] = useState("");
+  const [passwordCorrect, setPasswordCorrect] = useState(false);
+
+  const handlePasswordChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setPassword(event.target.value);
+  };
+
+  const handleDelete = async () => {
+    if (password === "123") {
+      try {
+        await axios.delete(
+          `http://localhost:3030/employee/${employeeToDelete.id}`
+        );
+        fetchData();
+        setIsModalOpenDelete(false);
+      } catch (error) {
+        console.log("Delete error:", error);
+      }
+    } else {
+      // Incorrect password
+      setPasswordCorrect(false);
+    }
+  };
+
   return (
     <Modal
+      visible={isModalOpenDelete}
       onCancel={handleCancelDelete}
-      open={isModalOpenDelete}
       footer={null}
       closeIcon={false}
     >
       <div className="flex flex-col items-center justify-center">
         <h1 className="text-red-400 text-xl font-[600]">
-          Are you sure you want to delete this employee
+          Are you sure you want to delete this employee?
         </h1>
+        <Input
+          type="password"
+          placeholder="Enter password"
+          value={password}
+          onChange={handlePasswordChange}
+        />
+        {passwordCorrect === false && (
+          <div style={{ color: "red" }}>
+            Incorrect password. Please try again.
+          </div>
+        )}
         <Space style={{ marginTop: 40 }}>
           <Button
             onClick={handleCancelDelete}
@@ -46,7 +74,12 @@ const ModalDelete = ({
           >
             Cancel
           </Button>
-          <Button style={{ background: "red", color: "#ffff" }}>Delete</Button>
+          <Button
+            onClick={handleDelete}
+            style={{ background: "red", color: "#ffff" }}
+          >
+            Delete
+          </Button>
         </Space>
       </div>
     </Modal>

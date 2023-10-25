@@ -9,21 +9,11 @@ import type { ColumnsType } from "antd/es/table";
 import { BsFillPencilFill } from "react-icons/bs";
 import { RiDeleteBin5Fill } from "react-icons/ri";
 import { BiSolidUserDetail } from "react-icons/bi";
-
-interface dataEmployee {
-  id: string;
-  profileImage: string;
-  name: string;
-  email: string;
-  phoneNumber: string;
-  role: string;
-  salary: string;
-  department: string;
-  status: string;
-}
+import { dataEmployee } from "@/type";
 
 const Employee = () => {
   const [userDetail, setUserDetail] = useState<dataEmployee[]>([]);
+  const [employeeToDelete, setEmployeeToDelete] = useState<any>(null);
 
   const [isModalOpenDetail, setIsModalOpenDetail] = useState<boolean>(false);
   const [isModalOpenUpdate, setIsModalOpenUpdate] = useState<boolean>(false);
@@ -57,6 +47,7 @@ const Employee = () => {
 
   const showModalUpdate = () => {
     setIsModalOpenUpdate(true);
+    // setEmployeeToUpdate(employeeToDelete);
   };
 
   const handleCancelUpdate = () => {
@@ -65,8 +56,9 @@ const Employee = () => {
 
   // ModalDetele Function
 
-  const showModalDelete = () => {
+  const showModalDelete = (employeeToDelete: dataEmployee) => {
     setIsModalOpenDelete(true);
+    setEmployeeToDelete(employeeToDelete);
   };
 
   const handleCancelDelete = () => {
@@ -141,7 +133,7 @@ const Employee = () => {
             <BsFillPencilFill />
           </button>
           <button
-            onClick={showModalDelete}
+            onClick={() => showModalDelete(record)}
             className="px-2 py-2 flex items-center gap-3
            text-red-500 border border-red-500  rounded-[10px] bg-red-100"
           >
@@ -165,12 +157,14 @@ const Employee = () => {
       <Card>
         <div className="flex items-center justify-between">
           <h1 className="font-[600] text-2xl uppercase">Empolyee Lising</h1>
-
+          <Button type="primary">AD NEW EMPOLYEE</Button>
           <ModalDelete
             isModalOpenDelete={isModalOpenDelete}
             setIsModalOpenDelete={setIsModalOpenDelete}
             handleCancelDelete={handleCancelDelete}
             showModalDelete={showModalDelete}
+            fetchData={fetchData}
+            employeeToDelete={employeeToDelete}
           />
 
           <ModalUpdate
