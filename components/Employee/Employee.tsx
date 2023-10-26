@@ -5,6 +5,7 @@ import { Table, Image, Card, Avatar, Modal, Button, Form, Input } from "antd";
 import ModalDetail from "./ModalDetail";
 import ModalUpdate from "./ModalUpdate";
 import ModalDelete from "./ModalDelete";
+import ModalAdd from "./ModalAdd";
 import type { ColumnsType } from "antd/es/table";
 import { BsFillPencilFill } from "react-icons/bs";
 import { RiDeleteBin5Fill } from "react-icons/ri";
@@ -13,11 +14,12 @@ import { dataEmployee } from "@/type";
 
 const Employee = () => {
   const [userDetail, setUserDetail] = useState<dataEmployee[]>([]);
-  const [employeeToDelete, setEmployeeToDelete] = useState<any>(null);
+  const [employee, setEmployee] = useState<any>(null);
 
   const [isModalOpenDetail, setIsModalOpenDetail] = useState<boolean>(false);
   const [isModalOpenUpdate, setIsModalOpenUpdate] = useState<boolean>(false);
   const [isModalOpenDelete, setIsModalOpenDelete] = useState<boolean>(false);
+  const [isModalOpenAdd, setIsModalOpenAdd] = useState<boolean>(false);
 
   // this is function to fetch data from databaste
 
@@ -45,9 +47,9 @@ const Employee = () => {
     setIsModalOpenDetail(false);
   };
 
-  const showModalUpdate = () => {
+  const showModalUpdate = (employee: dataEmployee) => {
     setIsModalOpenUpdate(true);
-    // setEmployeeToUpdate(employeeToDelete);
+    setEmployee(employee);
   };
 
   const handleCancelUpdate = () => {
@@ -56,13 +58,17 @@ const Employee = () => {
 
   // ModalDetele Function
 
-  const showModalDelete = (employeeToDelete: dataEmployee) => {
+  const showModalDelete = (employee: dataEmployee) => {
     setIsModalOpenDelete(true);
-    setEmployeeToDelete(employeeToDelete);
+    setEmployee(employee);
   };
 
   const handleCancelDelete = () => {
     setIsModalOpenDelete(false);
+  };
+
+  const showModalAdd = () => {
+    setIsModalOpenAdd(true);
   };
 
   // All Function Mpdal is in here
@@ -126,7 +132,7 @@ const Employee = () => {
       render: (text: string, record: dataEmployee) => (
         <div className="flex gap-4">
           <button
-            onClick={showModalUpdate}
+            onClick={() => showModalUpdate(record)}
             className="px-2 py-2 flex items-center gap-3
            text-blue-500 border border-blue-500  rounded-[10px] bg-blue-100"
           >
@@ -157,14 +163,23 @@ const Employee = () => {
       <Card>
         <div className="flex items-center justify-between">
           <h1 className="font-[600] text-2xl uppercase">Empolyee Lising</h1>
-          <Button type="primary">AD NEW EMPOLYEE</Button>
+          <Button type="primary" onClick={showModalAdd}>
+            AD NEW EMPOLYEE
+          </Button>
+
+          <ModalAdd
+            isModalOpenAdd={isModalOpenAdd}
+            setIsModalOpenAdd={setIsModalOpenAdd}
+            fetchData={fetchData}
+          />
+
           <ModalDelete
             isModalOpenDelete={isModalOpenDelete}
             setIsModalOpenDelete={setIsModalOpenDelete}
             handleCancelDelete={handleCancelDelete}
             showModalDelete={showModalDelete}
             fetchData={fetchData}
-            employeeToDelete={employeeToDelete}
+            employee={employee}
           />
 
           <ModalUpdate
@@ -172,6 +187,8 @@ const Employee = () => {
             setIsModalOpenUpdate={setIsModalOpenUpdate}
             showModalUpdate={showModalUpdate}
             handleCancelUpdate={handleCancelUpdate}
+            employee={employee}
+            fetchData={fetchData}
           />
 
           <ModalDetail

@@ -9,7 +9,7 @@ interface ModalDeleteProp {
   showModalDelete: (value: any) => void;
   handleCancelDelete: () => void;
   fetchData: () => void;
-  employeeToDelete: dataEmployee;
+  employee: dataEmployee;
 }
 
 const ModalDelete = ({
@@ -18,7 +18,7 @@ const ModalDelete = ({
   showModalDelete,
   handleCancelDelete,
   fetchData,
-  employeeToDelete,
+  employee,
 }: ModalDeleteProp) => {
   const [password, setPassword] = useState("");
   const [passwordCorrect, setPasswordCorrect] = useState(false);
@@ -30,9 +30,7 @@ const ModalDelete = ({
   const handleDelete = async () => {
     if (password === "123") {
       try {
-        await axios.delete(
-          `http://localhost:3030/employee/${employeeToDelete.id}`
-        );
+        await axios.delete(`http://localhost:3030/employee/${employee.id}`);
         fetchData();
         setIsModalOpenDelete(false);
       } catch (error) {

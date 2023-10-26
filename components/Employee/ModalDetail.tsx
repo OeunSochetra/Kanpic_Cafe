@@ -1,7 +1,7 @@
-"use client";
 import { Button, Card, Image, Modal } from "antd";
 import axios from "axios";
 import React, { useState, useEffect } from "react";
+import { dataEmployee } from "@/type";
 
 interface ModalDetailProp {
   isModalOpenDetail: boolean;
@@ -10,13 +10,13 @@ interface ModalDetailProp {
   handleCancelDetail: (value: any) => void;
 }
 
-
 const ModalDetail = ({
   showModalDetail,
   setIsModalOpenDetail,
   isModalOpenDetail,
   handleCancelDetail,
 }: ModalDetailProp) => {
+  const [employeeData, setEmployeeData] = useState<dataEmployee | null>(null);
   return (
     <Modal
       footer={null}
@@ -24,8 +24,8 @@ const ModalDetail = ({
       onCancel={handleCancelDetail}
       open={isModalOpenDetail}
     >
-      <Button type="text" className="text-red-500" onClick={handleCancelDetail}>
-        Cencel
+      <Button danger onClick={handleCancelDetail}>
+        Cancel
       </Button>
     </Modal>
   );

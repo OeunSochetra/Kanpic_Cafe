@@ -139,15 +139,17 @@
   ],
   "Employee": [
     {
-      "id": "1",
-      "name": "John Doe",
-      "profileImage": "https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
-      "email": "john@example.com",
-      "phoneNumber": "+1 (123) 456-7890",
+      "name": "Oeun Sochetra",
+      "dateOfbirth": "2023-10-24T15:58:48.268Z",
+      "profileImage": "https://images.pexels.com/photos/18500607/pexels-photo-18500607/free-photo-of-hand-of-a-person-holding-a-disposable-cup-with-a-short-phrase.jpeg?auto=compress&cs=tinysrgb&w=800&lazy=load",
+      "email": "oeunsochetra@gmail.com",
+      "address": "Phnom Penh",
+      "phoneNumber": "087326392",
       "role": "Manager",
-      "salary": "$50,000",
-      "department": "Sales",
-      "status": "Active"
+      "salary": "$300",
+      "department": "Sale",
+      "status": "Action",
+      "id": 1
     }
   ]
 }
